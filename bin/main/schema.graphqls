@@ -1,0 +1,21 @@
+type RestaurantInfo @key(fields: "company_code") {
+	company_code: String!
+	member_id: String!
+	restaurant_name: String!
+	restaurant_address: String!
+	restaurant_phone: String!
+	restaurant_img: String
+	board_comment_code: String
+	star_avg_score: Int
+	Kind: Kind
+}
+
+type Kind @key(fields: "kind_code") @extends {
+	kind_code: String! @external
+	restaurants: [RestaurantInfo]
+}
+
+type Query{
+	restaurants: [RestaurantInfo]
+	restaurant(company_code: String): RestaurantInfo
+}
