@@ -34,8 +34,8 @@ public class RestaurantRepository {
 	
 	public List<Restaurant> findbyKind_code(String code) {
 		try {
-			//String sql = "Select e from " + Restaurant.class.getName() + " e where e.kind_code =: kind_code";
-			String sql = "Select restaurant_name, restaurant_address, restaurant_phone, member_id from " + Restaurant.class.getName() + " e where e.kind_code =: kind_code";
+			String sql = "Select e from " + Restaurant.class.getName() + " e where e.kind_code =: kind_code";
+			//String sql = "Select restaurant_name, restaurant_address, restaurant_phone, member_id from " + Restaurant.class.getName() + " e where e.kind_code =: kind_code";
 			
 			Session session = this.sessionFactory.getCurrentSession();
 			Query<Restaurant> query = session.createQuery(sql, Restaurant.class);
