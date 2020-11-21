@@ -48,6 +48,21 @@ public class RestaurantRepository {
 		}
 	}
 	
+	public List<Restaurant> findbyKind_code1(String code) {
+		try {
+			String sql = "Select e from " + Restaurant.class.getName() + " e where e.kind_code =: kind_code";
+			
+			Session session = this.sessionFactory.getCurrentSession();
+			Query<Restaurant> query = session.createQuery(sql, Restaurant.class);
+			query.setParameter("kind_code", code);
+			
+			List<Restaurant> results = query.list();
+			return results;
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+	
 	public List<Restaurant> findAll() {
 		try {
 			String sql = "Select e from " + Restaurant.class.getName() + " e ";

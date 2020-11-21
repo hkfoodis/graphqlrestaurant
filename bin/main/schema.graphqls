@@ -19,3 +19,4 @@ type Query{
 	restaurants: [RestaurantInfo]
 	restaurant(company_code: String): RestaurantInfo
 }
+
